@@ -106,7 +106,7 @@ for ax, dv, ttl in zip(axes, ("shift_vs_2024", "shift_vs_2022"), ("vs 2024 presi
 axes[0].set_yticks(np.arange(len(order))[::-1], order)
 h_, l_ = axes[0].get_legend_handles_labels()
 fig.legend(h_, l_, frameon=False, fontsize=9, loc="upper left", ncol=2, bbox_to_anchor=(0.02, 0.93))
-fig.suptitle("No migration window survives the controls — and midterm-to-midterm, it flips sign",
+fig.suptitle("No migration window survives the controls; midterm-to-midterm the sign flips",
              x=0.02, ha="left", fontsize=12.5, fontweight="bold", color=INK)
 fig.text(0.02, 0.01, "Vote-weighted county regressions, robust 95% CIs. Census PEP V2025 net domestic migration, annualised.",
          fontsize=7.5, color=MUTED)

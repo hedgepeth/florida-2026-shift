@@ -88,7 +88,13 @@ Two objections to the first pass:
 
 ![](figures/fig4_windows.png)
 
-I ran every 1-year and multi-year Census window from July 2020 to June 2025, against both baselines. The answer is the same everywhere: a clear negative correlation with no controls, nothing once age, turnout and 2024 margin are controlled, and a *positive* sign midterm-to-midterm. That's because the same counties grow every year, so different windows mostly measure the same thing. Year-by-year detail isn't recoverable from this data. Full table: `results/windows.csv`.
+I ran every 1-year and multi-year Census window from July 2020 to June 2025, against both baselines. The answer is the same everywhere:
+
+- **No controls:** a clear negative correlation.
+- **Age, turnout and 2024 margin controlled** (the chart): nothing.
+- **Add % Hispanic and % Black:** the sign flips *positive* against both baselines. Against 2024, most 2-to-3-year windows are significant, around +0.4 to +0.55 per 1%/yr (Jul 2022–Jun 2025: +0.40, p=0.048). Against 2022 it's +0.6 to +1.1. Net of demographics, fast-growing counties shifted *more* toward Democrats. The raw negative correlation was mostly the Hispanic snapback in the big South Florida counties, which are also the ones losing people.
+
+Windows barely differ because the same counties grow every year, so different windows mostly measure the same thing. Year-by-year detail isn't recoverable from this data. Full table: `results/windows.csv`.
 
 A conceptual point: anyone who arrived before November 2024 was already in the 2024 electorate. Earlier windows can't test whether new arrivals changed the result. They test whether counties full of transplants swung differently. That's a fair question, just a different claim.
 
