@@ -1,0 +1,17 @@
+{
+ "point":{
+  "coef":-0.75,
+  "sumter_pts":-4.0,
+  "statewide_net_votes":-142197
+ },
+ "ci_lo":{
+  "coef":-1.17,
+  "sumter_pts":-6.2,
+  "statewide_net_votes":-221047
+ },
+ "ci_hi":{
+  "coef":-0.33,
+  "sumter_pts":-1.8,
+  "statewide_net_votes":-63346
+ }
+}

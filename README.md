@@ -2,6 +2,8 @@
 
 **TL;DR.** On the NYT map, Sumter County (The Villages) was the only Florida county that moved right from 2024 to 2026. The obvious theory is that Republican retirees moving into growth counties held back the blue shift. I tested it against Census migration data. It mostly doesn't hold. **Florida's blue wave was smallest where the electorate was oldest, whether those retirees arrived last year or decades ago.** Hold Sumter out and fit a line through the other 66 counties on age alone: it predicts Sumter's shift almost exactly. Recent migration adds little once you account for age, and it doesn't come close to the 107,721 votes Jolly lost by.
 
+**Round 2** (below) splits migration into moves within Florida and arrivals from other states. Out-of-state arrivals *do* predict a smaller shift from 2024, even with full controls. But those same counties shifted at least as far toward Democrats as everywhere else when you compare 2026 to the 2022 midterm. The pattern is mostly about 2024: those counties never swung as hard toward Trump, so they had less to give back.
+
 Data as of the morning of Nov 4, 2026 (about 99% of the expected vote counted, unofficial). The 2026 race is Donalds (R) vs Jolly (D) for governor.
 
 ---
@@ -75,6 +77,34 @@ Take the full model's migration coefficient at face value and ask how many votes
 
 Jolly lost by **107,721**. Even the most generous version, which removes the inflow drag but keeps the outflow benefit and uses the edge of the confidence interval, still falls short. The likely answer: transplants **may have shaved some off the margin. They didn't decide the race.** The old electorate that was already in Florida did more.
 
+## Round 2: other migration windows, and moves within Florida vs from out of state
+
+Two objections to the first pass:
+
+1. *Use migration windows that end before the election, so those arrivals are fully settled and registered in time to vote.*
+2. *Separate people moving out of Miami and Broward to elsewhere in Florida from people arriving from other states.*
+
+### Window choice doesn't change anything
+
+![](figures/fig4_windows.png)
+
+I ran every 1-year and multi-year Census window from July 2020 to June 2025, against both baselines. The answer is the same everywhere: a clear negative correlation with no controls, nothing once age, turnout and 2024 margin are controlled, and a *positive* sign midterm-to-midterm. That's because the same counties grow every year, so different windows mostly measure the same thing. Year-by-year detail isn't recoverable from this data. Full table: `results/windows.csv`.
+
+A conceptual point: anyone who arrived before November 2024 was already in the 2024 electorate. Earlier windows can't test whether new arrivals changed the result. They test whether counties full of transplants swung differently. That's a fair question, just a different claim.
+
+### Splitting the moves: IRS county-to-county flows (2020–2023 tax filers)
+
+![](figures/fig5_instate_vs_interstate.png)
+
+- **Moves within Florida don't explain the smaller shift.** That includes the Miami/Broward spillover. With full controls, in-state arrivals predict a slightly *larger* blue shift (+0.41 per 1% of population per year, p=0.03). Inflow from Miami-Dade and Broward specifically isn't significant either way.
+- **Out-of-state arrivals do predict a smaller shift from 2024.** The effect is −0.75 points per 1% of population per year (p<0.001). It holds with controls for age, % Hispanic, % Black, turnout retention and 2024 margin (R² = 0.94), and with Sumter or the three big South Florida counties dropped. It weakens without the Panhandle and Jacksonville military counties (−0.67, p=0.10), since service moves inflate interstate inflow there.
+- **But not from 2022.** Midterm-to-midterm, the same counties shifted at least as far toward Democrats as everywhere else (+0.72, p=0.07). That's the stronger test of the hypothesis, because the 2022→2026 comparison includes everyone who arrived from 2022 to 2024 as a *new* voter.
+- **What separates the two baselines is 2024.** Counties with heavy out-of-state inflow swung *toward Democrats*, relative to the rest of Florida, from 2022 to 2024 (+1.84 per 1%/yr, p<0.001). Trump's 2024 surge happened elsewhere. So against a 2024 baseline those counties had less Trump surge to give back and look "dampened." Against 2022 they don't. The 2024 confound was real, but it pointed the other way from what I first guessed.
+
+**The naive read**, taking the −0.75 as causal, says out-of-state migration cost Democrats about 142k votes (63k–221k), which is more than Jolly's 107,721 margin. That read doesn't survive the 2022 comparison, so I wouldn't put it in a headline. The defensible version: *counties built by out-of-state transplants had the smallest swing back from Trump 2024. That's mostly because they never swung as hard toward Trump in the first place, not because new arrivals voted the wave down.*
+
+IRS caveat: these are tax filers. Retirees living mostly on Social Security often don't file, so the IRS counts undercount exactly the Villages-type movers. That biases these numbers in a way that's hard to sign.
+
 ## What would actually settle it
 
 County data can't separate *who* voted. These would:
@@ -96,6 +126,7 @@ County data can't separate *who* voted. These would:
 pip install -r requirements.txt
 python src/build.py     # joins + cross-checks the raw files -> data/processed/fl_counties.csv
 python src/analyze.py   # regressions, holdout test, counterfactuals -> results/, figures/
+python src/windows.py   # window sweep + IRS in-state vs out-of-state split -> results/, figures/fig4-5
 ```
 
 `build.py` asserts that the NYT 2024 baseline matches an independent source (tonmcg) for all 67 counties. All three raw files sum exactly to the state totals.
@@ -109,5 +140,7 @@ python src/analyze.py   # regressions, holdout test, counterfactuals -> results/
 | `pres2024.csv` | [tonmcg/US_County_Level_Election_Results_08-24](https://github.com/tonmcg/US_County_Level_Election_Results_08-24) |
 | `census_co_est2025_fl.csv` | Census PEP Vintage 2025, `co-est2025-alldata.csv`, Florida rows (components of change; "2025" = Jul 2024 to Jun 2025) |
 | `census_agesex2025_fl.csv` | Census PEP Vintage 2025, `cc-est2025-agesex-12.csv`, YEAR=7 (July 1, 2025) |
+| `census_ethnicity2025_fl.csv` | Census PEP Vintage 2025, `cc-est2025-alldata-12.csv`, YEAR=7, AGEGRP=0 (Hispanic, non-Hispanic white alone, non-Hispanic Black alone) |
+| `irs_soi_fl_county_flows.csv` | [IRS SOI county migration](https://www.irs.gov/statistics/soi-tax-stats-migration-data) `countyinflow`/`countyoutflow` 2021, 2122, 2223; individuals (n2); same-state (97/001), different-state (97/003), and inflow from Miami-Dade/Broward. Suppressed cells set to 0 |
 
 Margins are Dem minus Rep as a share of the total vote. A positive shift means more Democratic.
