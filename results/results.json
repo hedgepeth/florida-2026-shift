@@ -1,0 +1,387 @@
+{
+  "state_margin_2026_dem": -1.3,
+  "state_margin_2024_dem": -13.1,
+  "state_margin_2022_dem": -19.404,
+  "state_vote_gap_2026": 107721,
+  "state_turnout_retention": 75.8,
+  "median_county_shift_vs_2024": 8.6,
+  "median_county_shift_vs_2022": 15.2,
+  "counties_shifting_right_vs_2024": [
+    "Sumter"
+  ],
+  "counties_shifting_right_vs_2022": [],
+  "fl_net_domestic_mig_jul24_jun25": 22517,
+  "sumter_net_domestic_mig_jul24_jun25": 5633,
+  "sumter_share_of_fl_net": 25.0,
+  "sum_of_positive_county_nets": 189990,
+  "sum_of_negative_county_nets": -167473,
+  "sumter_share_of_positive_county_nets": 3.0,
+  "sumter_share_of_fl_pop": 0.67,
+  "biggest_losers": [
+    [
+      "Miami-Dade",
+      -72254
+    ],
+    [
+      "Broward",
+      -29517
+    ],
+    [
+      "Orange",
+      -20271
+    ]
+  ],
+  "regressions": [
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.162,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -1.253,
+          "se": 0.355,
+          "p": 0.0004
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.43,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -1.603,
+          "se": 0.337,
+          "p": 0.0
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ pct_65plus",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.393,
+      "coefs": {
+        "pct_65plus": {
+          "b": -0.393,
+          "se": 0.056,
+          "p": 0.0
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ pct_65plus",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.689,
+      "coefs": {
+        "pct_65plus": {
+          "b": -0.486,
+          "se": 0.051,
+          "p": 0.0
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate + pct_65plus",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.428,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -0.626,
+          "se": 0.315,
+          "p": 0.0467
+        },
+        "pct_65plus": {
+          "b": -0.347,
+          "se": 0.068,
+          "p": 0.0
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate + pct_65plus",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.765,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -0.78,
+          "se": 0.309,
+          "p": 0.0118
+        },
+        "pct_65plus": {
+          "b": -0.392,
+          "se": 0.049,
+          "p": 0.0
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.478,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -0.397,
+          "se": 0.381,
+          "p": 0.2966
+        },
+        "pct_65plus": {
+          "b": -0.358,
+          "se": 0.124,
+          "p": 0.0039
+        },
+        "turnout_retention": {
+          "b": 0.009,
+          "se": 0.253,
+          "p": 0.9715
+        },
+        "margin_2024_dem": {
+          "b": 0.042,
+          "se": 0.04,
+          "p": 0.2921
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.786,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": -0.448,
+          "se": 0.403,
+          "p": 0.2664
+        },
+        "pct_65plus": {
+          "b": -0.288,
+          "se": 0.047,
+          "p": 0.0
+        },
+        "turnout_retention": {
+          "b": -0.279,
+          "se": 0.141,
+          "p": 0.0479
+        },
+        "margin_2024_dem": {
+          "b": 0.062,
+          "se": 0.023,
+          "p": 0.0078
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_21_24_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.473,
+      "coefs": {
+        "dommig_21_24_rate": {
+          "b": -0.09,
+          "se": 0.106,
+          "p": 0.3962
+        },
+        "pct_65plus": {
+          "b": -0.35,
+          "se": 0.122,
+          "p": 0.0041
+        },
+        "turnout_retention": {
+          "b": 0.006,
+          "se": 0.257,
+          "p": 0.9812
+        },
+        "margin_2024_dem": {
+          "b": 0.044,
+          "se": 0.04,
+          "p": 0.2673
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_21_24_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.782,
+      "coefs": {
+        "dommig_21_24_rate": {
+          "b": -0.112,
+          "se": 0.134,
+          "p": 0.4045
+        },
+        "pct_65plus": {
+          "b": -0.281,
+          "se": 0.049,
+          "p": 0.0
+        },
+        "turnout_retention": {
+          "b": -0.276,
+          "se": 0.147,
+          "p": 0.0614
+        },
+        "margin_2024_dem": {
+          "b": 0.063,
+          "se": 0.03,
+          "p": 0.0376
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2022 ~ dommig_25_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": false,
+      "n": 67,
+      "r2": 0.352,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": 0.085,
+          "se": 0.483,
+          "p": 0.8601
+        },
+        "pct_65plus": {
+          "b": -0.401,
+          "se": 0.16,
+          "p": 0.0122
+        },
+        "turnout_retention": {
+          "b": 0.024,
+          "se": 0.33,
+          "p": 0.9422
+        },
+        "margin_2024_dem": {
+          "b": 0.045,
+          "se": 0.052,
+          "p": 0.39
+        }
+      }
+    },
+    {
+      "formula": "shift_vs_2022 ~ dommig_25_rate + pct_65plus + turnout_retention + margin_2024_dem",
+      "weighted_by_2026_votes": true,
+      "n": 67,
+      "r2": 0.682,
+      "coefs": {
+        "dommig_25_rate": {
+          "b": 0.401,
+          "se": 0.341,
+          "p": 0.24
+        },
+        "pct_65plus": {
+          "b": -0.539,
+          "se": 0.073,
+          "p": 0.0
+        },
+        "turnout_retention": {
+          "b": 0.225,
+          "se": 0.199,
+          "p": 0.258
+        },
+        "margin_2024_dem": {
+          "b": -0.016,
+          "se": 0.04,
+          "p": 0.6841
+        }
+      }
+    }
+  ],
+  "regression_full_ex_sumter_weighted": {
+    "formula": "shift_vs_2024 ~ dommig_25_rate + pct_65plus + turnout_retention + margin_2024_dem",
+    "weighted_by_2026_votes": true,
+    "n": 66,
+    "r2": 0.766,
+    "coefs": {
+      "dommig_25_rate": {
+        "b": -0.408,
+        "se": 0.374,
+        "p": 0.2749
+      },
+      "pct_65plus": {
+        "b": -0.301,
+        "se": 0.046,
+        "p": 0.0
+      },
+      "turnout_retention": {
+        "b": -0.342,
+        "se": 0.159,
+        "p": 0.0316
+      },
+      "margin_2024_dem": {
+        "b": 0.067,
+        "se": 0.022,
+        "p": 0.0023
+      }
+    }
+  },
+  "sumter_holdout": [
+    {
+      "formula": "shift_vs_2024 ~ pct_65plus",
+      "pred": -3.73,
+      "pi95": [
+        -12.61,
+        5.15
+      ],
+      "observed": -2.28
+    },
+    {
+      "formula": "shift_vs_2024 ~ pct_65plus + turnout_retention + margin_2024_dem",
+      "pred": -3.95,
+      "pi95": [
+        -12.72,
+        4.82
+      ],
+      "observed": -2.28
+    },
+    {
+      "formula": "shift_vs_2024 ~ dommig_25_rate",
+      "pred": 6.9,
+      "pi95": [
+        -1.75,
+        15.56
+      ],
+      "observed": -2.28
+    }
+  ],
+  "sumter_needed_newcomer_margin": {
+    "5633": -76.0,
+    "9000": -61.6,
+    "12000": -55.6
+  },
+  "sumter": {
+    "COUNTY": "119",
+    "county": "Sumter",
+    "pop_2025": 157772,
+    "pct_65plus": 57.57,
+    "votes_2022": 89464,
+    "votes_2024": 105217,
+    "votes_2026": 94997,
+    "margin_2022_dem": -46.7,
+    "margin_2024_dem": -37.62,
+    "margin_2026_dem": -39.9,
+    "shift_vs_2024": -2.28,
+    "shift_vs_2022": 6.8,
+    "turnout_retention": 90.29,
+    "dommig_25": 5633,
+    "dommig_25_rate": 3.65,
+    "dommig_21_24": 31296,
+    "dommig_21_24_rate": 20.29,
+    "natchg_25_rate": -1.34,
+    "eevp": 99.0
+  },
+  "migration_counterfactual_net_dem_votes": {
+    "point": {
+      "coef": -0.448,
+      "zero_migration_everywhere": 9600,
+      "zero_inflow_only": 33272
+    },
+    "ci95_edge": {
+      "coef": -1.239,
+      "zero_migration_everywhere": 26529,
+      "zero_inflow_only": 91949
+    }
+  }
+}
